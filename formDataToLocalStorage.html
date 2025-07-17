@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local Storage Example</title>
+    </head>
+    <body>
+        <h2>User Details Form</h2>
+        <form id="userForm">
+            <label>Name:</label><br />
+            <input type="text" id="name" required> <br/><br/>
+
+            <label>Email: </label> <br />
+            <input type="email" id="email" required><br/><br/>
+
+            <label>Age:</label><br/>
+            <input type="number" id="age" required><br/><br/>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <script>
+            const form = document.getElementById('userForm');
+            form.addEventListener('submit', function (e) {
+                event.preventDefault(); // Prevent Page Reloading
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const age = document.getElementById('age').value;
+
+                console.log(`>varsha_training | [formDataToLocalStorage.html] >#32 name, email, age:`, name, email, age);
+                const userData = { name, email , age };
+
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert("user data saved in the localstorage");
+
+                form.reset();
+
+            })
+        </script>
+    </body>
+</html>
